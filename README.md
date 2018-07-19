@@ -1,5 +1,44 @@
 # Factorial-of-number-using-Verilog
-1. The calculator takes a 32 bit number as input.
-2. The input is unsigned, that is you don’t have to take care of the sign (number can only be positive).
-3. Output of the calculator includes a single 32 bit number which will be the result and a single bit output indicating the overflow.
-4. Overflow occurs when more than 32 bits are required to represent the result.
+`timescale 1ns / 1ps
+
+module factr(number, overflow,result,clk);
+    
+	input clk;
+
+        input[31:0] number;
+    
+	output[31:0] result;
+    
+	reg [31:0] result;
+    
+	reg [31:0] counter;
+    //integer counter;
+    
+    	
+	output overflow;
+    
+	assign overflow=(number>32'b1100)?1:0;
+    
+	initial begin
+        
+		counter=0;
+        
+		result=32'b1;
+    
+	end
+    
+	always@(posedge clk) begin
+        
+		if (counter<number) begin
+            		
+
+counter=counter+1;
+            		
+
+result=result*counter;
+        	
+	end
+ 
+end
+endmodule
+ 
