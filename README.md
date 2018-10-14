@@ -4,4 +4,5 @@
 positive).
 3. Output of the calculator includes a single 32 bit number which will be the result and a single bit
 output indicating the overflow.
-4. Overflow occurs when more than 32 bits are required to represent the result.
+4. Overflow occurs when the result is represented 
+using more than 32 bits.
